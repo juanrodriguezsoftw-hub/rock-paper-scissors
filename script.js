@@ -1,4 +1,3 @@
-
 function getComputerChoice() {
     let choice = Math.random()
 
@@ -12,38 +11,70 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let message = prompt("Type you option: ")
+    let message = prompt("Rock, Paper, Scissors. Type you option: ")
     let caseInsensitive = message.toLowerCase()
     return caseInsensitive
 }
 
-let humanScore = 0
-let computerScore = 0
 
-function playRound(humanChoice, computerChoice) {
+function playGame(){
+    let humanScore = 0
+    let computerScore = 0
 
-    if(humanChoice === computerChoice){
-        humanScore++;
-        computerScore++;
+    function playRound(humanChoice, computerChoice) {
+        if(humanChoice === computerChoice){
         console.log("Both chose the same option")
-    } else if(humanChoice === "rock" && computerChoice === "scissors"){
+        alert("Both chose the same option")
+        }else if(humanChoice === "rock" && computerChoice === "scissors"){
         humanScore++;
         console.log("You win. Rock wins the battle")
-    } else if(humanChoice === "paper" && computerChoice === "rock") {
+        alert("You win. Rock wins the battle")
+        }else if(humanChoice === "paper" && computerChoice === "rock") {
         humanScore++;
         console.log("You win. paper wins the battle")
-    } else if(humanChoice === "scissors" && computerChoice === "paper") {
+        alert("You win. paper wins the battle")
+        }else if(humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
         console.log("You win. Scissors wins the battle")
-    } else {
+        alert("You win. Scissors wins the battle")
+        }else {
         computerScore++;
         console.log("The computer wins")
+        alert("The computer wins")
+        }
     }
 
-    
+    let humanSelectionOne = getHumanChoice();
+    let computerSelectionOne = getComputerChoice();
+    playRound(humanSelectionOne, computerSelectionOne);
+
+    let humanSelectionTwo = getHumanChoice();
+    let computerSelectionTwo = getComputerChoice();
+    playRound(humanSelectionTwo, computerSelectionTwo);
+
+    let humanSelectionThree = getHumanChoice();
+    let computerSelectionThree = getComputerChoice();
+    playRound(humanSelectionThree, computerSelectionThree);
+
+    let humanSelectionFour = getHumanChoice();
+    let computerSelectionFour = getComputerChoice();
+    playRound(humanSelectionFour, computerSelectionFour);
+
+    let humanSelectionFive = getHumanChoice();
+    let computerSelectionFive = getComputerChoice();
+    playRound(humanSelectionFive, computerSelectionFive);
+
+    if(humanScore > computerScore){
+        console.log("You win")
+        alert("You win")
+    }else if(computerScore > humanScore){
+        console.log("Computer wins")
+        alert("Computer wins")
+    }else {
+        console.log("There is not a winner")
+        alert("There is not a winner")
+    }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+console.log(playGame());
 
-playRound(humanSelection, computerSelection);
